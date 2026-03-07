@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analisi — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf7;--ink:#1a1a2e;--ink-soft:#4a4a6a;--yellow:#f5e642;--shadow:5px 5px 0 #1a1a2e;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.8;color:var(--ink);background:#fafaf7;
+  background-image:linear-gradient(#e4eef6 1px,transparent 1px),linear-gradient(90deg,#e4eef6 1px,transparent 1px),linear-gradient(#c8d8e8 1px,transparent 1px),linear-gradient(90deg,#c8d8e8 1px,transparent 1px);
+  background-size:20px 20px,20px 20px,100px 100px,100px 100px;
+  min-height:100vh;
+}
+nav{
+  position:fixed;top:0;left:0;right:0;height:60px;
+  background:var(--ink);display:flex;align-items:center;
+  z-index:1000;border-bottom:3px solid var(--yellow);padding:0 2rem;
+}
+.nav-logo{font-family:'Fira Code',monospace;font-weight:600;color:var(--yellow);font-size:.9rem;}
+
+.home-wrap{
+  max-width:860px;margin:0 auto;padding:120px 2rem 6rem;
+}
+
+.home-header{
+  margin-bottom:3rem;
+}
+.home-label{
+  font-family:'Fira Code',monospace;font-size:.7rem;font-weight:600;
+  background:var(--ink);color:var(--yellow);padding:.25rem .8rem;
+  display:inline-block;margin-bottom:1rem;
+}
+.home-title{
+  font-family:'Crimson Pro',serif;font-size:2.6rem;font-weight:700;line-height:1.15;
+  margin-bottom:.6rem;
+}
+.home-sub{
+  font-size:.95rem;color:var(--ink-soft);
+}
+
+.cards-label{
+  font-family:'Fira Code',monospace;font-size:.65rem;font-weight:600;
+  letter-spacing:.12em;color:var(--ink-soft);
+  margin-bottom:1.2rem;border-bottom:2px solid var(--ink);padding-bottom:.4rem;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:1.2rem;
+}
+
+.card{
+  background:white;
+  border:2px solid var(--ink);
+  box-shadow:var(--shadow);
+  padding:1.4rem 1.6rem;
+  cursor:pointer;
+  text-decoration:none;
+  color:var(--ink);
+  display:flex;flex-direction:column;gap:.5rem;
+  transition:transform .12s, box-shadow .12s;
+}
+.card:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:7px 7px 0 var(--ink);
+}
+.card-tag{
+  font-family:'Fira Code',monospace;font-size:.62rem;font-weight:600;
+  background:var(--ink);color:var(--yellow);
+  padding:.15rem .55rem;align-self:flex-start;
+}
+.card-tag.green{background:#1a8c3a;}
+.card-tag.blue{background:#1a5fc8;}
+.card-tag.red{background:#c8221a;}
+.card-title{
+  font-family:'Crimson Pro',serif;font-size:1.25rem;font-weight:700;line-height:1.25;
+}
+.card-desc{
+  font-size:.85rem;color:var(--ink-soft);line-height:1.6;
+}
+.card-arrow{
+  font-family:'Fira Code',monospace;font-size:.7rem;color:var(--ink-soft);
+  margin-top:.4rem;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">analisi.home</span>
+</nav>
+
+<div class="home-wrap">
+
+  <div class="home-header">
+    <div class="home-label">ANALISI MATEMATICA</div>
+    <div class="home-title">Materiale didattico<br>interattivo</div>
+    <div class="home-sub">Scegli un argomento per iniziare.</div>
+  </div>
+
+  <div class="cards-label">LEZIONI</div>
+  <div class="cards" id="lezioni">
+
+    <a class="card" href="index.html?data=successioni">
+      <span class="card-tag">LEZIONE 04</span>
+      <div class="card-title">Successioni numeriche e di funzioni</div>
+      <div class="card-desc">Definizioni, esempi, convergenza puntuale e uniforme. Con quiz e vero/falso.</div>
+      <div class="card-arrow">→ apri</div>
+    </a>
+
+  </div>
+
+  <div class="cards-label" style="margin-top:2.5rem">ESERCIZI</div>
+  <div class="cards" id="esercizi">
+
+    <a class="card" href="index.html?data=esercizi_limiti">
+      <span class="card-tag green">ESERCIZI</span>
+      <div class="card-title">Limiti di successioni numeriche e di funzioni</div>
+      <div class="card-desc">15 esercizi svolti in difficoltà crescente. Solo calcoli, niente quiz.</div>
+      <div class="card-arrow">→ apri</div>
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+</html>

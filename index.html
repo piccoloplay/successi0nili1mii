@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analisi</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .btn-home {
+    font-family: 'Fira Code', monospace;
+    font-size: .72rem;
+    font-weight: 600;
+    background: var(--yellow);
+    color: var(--ink);
+    border: 2px solid var(--yellow);
+    padding: .3rem .9rem;
+    cursor: pointer;
+    margin-right: 1.2rem;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    transition: background .12s, color .12s;
+    flex-shrink: 0;
+  }
+  .btn-home:hover {
+    background: var(--ink);
+    color: var(--yellow);
+  }
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
+  options: {}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<nav>
+  <a class="btn-home" href="home.html">← home</a>
+  <span class="nav-logo" id="nav-logo"></span>
+  <ul class="nav-links" id="nav-links"></ul>
+</nav>
+
+<div class="hero">
+  <div class="lesson-card">
+    <span class="lc-num" id="lesson-num"></span>
+    <div class="lc-title" id="lesson-title"></div>
+    <div class="lc-sub" id="lesson-sub"></div>
+  </div>
+</div>
+
+<div class="content" id="content"></div>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var dataName = params.get('data') || 'successioni';
+  dataName = dataName.replace(/[^a-zA-Z0-9_]/g, '');
+  var script = document.createElement('script');
+  script.src = 'data_' + dataName + '.js';
+  script.onerror = function() {
+    document.getElementById('content').innerHTML =
+      '<p style="padding:2rem;color:red;font-family:monospace">Errore: data_' + dataName + '.js non trovato.</p>';
+  };
+  document.head.appendChild(script);
+})();
+</script>
+<script src="app.js"></script>
+</body>
+</html>
